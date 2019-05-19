@@ -1,0 +1,17 @@
+1. Create device list.
+2. Import device list with Import Devices Python script.  Select the CSV where your device list is stored.
+3. Create text file with commands you want to execute across all devices.
+4. Modify Command Execution script to pull from the text file you just created with commands.
+5. Modify passwords and logging settings within SecureCRT
+  a. Open Properties of root folder containing all the devices.
+  b. Set password for SSH session and store it.
+  c. Set logging variable for the directory containing all the sessions.
+    § C:\Users\tj\Desktop\%S.%D%M%%Y.%h%m.txt
+  d. For large sites, if you don't want to manually accept host keys as you log into devices you can modify an SSH2 config file and SecureCRT auto accepts all SSH host keys.
+    i. Look at Options > Global Options.
+    ii. General > Configuration Paths.  Note this location.
+    iii. Pull up Windows Explorer to this location.  There's an SSH2 config file here.  Open it up.  Example locatiton: C:\Users\tj\AppData\Roaming\VanDyke\Config\SSH2.ini
+    iv. Find the following value: D:"Automatically Accept Host Keys"=00000000.  Change the last 0 to a 1, so you get D:"Automatically Accept Host Keys"=00000001.
+    v. Exit SecureCRT and re-open.
+6. Now right-click the directory will all your devices and select Connect in Tabs.  All your sessions open up.
+7. Select Script > Run and kick off the Python script for executing commands.  It'll prompt you for the CSV you made earlier.  When you select it it'll run all your commands and logging will be performed.

@@ -1,0 +1,3 @@
+folder,username,hostname,protocol,session_name
+FtWayne,labadmin,172.19.0.2,ssh2,coresw
+FtWayne,labadmin,172.22.0.2,ssh2,asa
